@@ -124,13 +124,21 @@ body[data-lens="r"] [data-lens]:not([data-lens~="r"]),
 body[data-lens="q"] [data-lens]:not([data-lens~="q"]),
 body[data-lens="d"] [data-lens]:not([data-lens~="d"]){opacity:.22}
 
-/* resumes */
-.resumes{display:grid;grid-template-columns:repeat(3,1fr);gap:1.25rem}
-.res{background:var(--surface);border-radius:16px;padding:1.6rem 1.5rem 1.5rem;border-top:8px solid var(--c);display:flex;flex-direction:column;gap:.8rem}
-.res h3{font-size:1.6rem}
-.res p{color:var(--ink-2);flex:1}
-.res .btn{align-self:flex-start;border-color:var(--c);color:var(--ink)}
-.res .btn:hover{background:var(--c);color:var(--surface)}
+/* resumes: CTD triangle */
+.ctd{display:flex;flex-direction:column;align-items:center;gap:.75rem}
+.m1{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:.75rem;width:min(100%,86%)}
+.tile{background:var(--surface);border:2px solid var(--line);border-radius:14px;padding:1.2rem 1.2rem 1.25rem;display:flex;flex-direction:column;gap:.5rem;text-align:center;align-items:center;transition:border-color .15s}
+.tile:hover,.tile:focus-within{border-color:var(--c)}
+.tile .mod{font-size:.88rem;color:var(--ink-2)}
+.tile h3{font-size:1.45rem;color:var(--c)}
+.tile p:not(.mod){color:var(--ink-2);font-size:.97rem;flex:1;max-width:28ch}
+.tile .btn{border-color:var(--c);color:var(--ink);min-height:2.5rem;padding:.4rem 1.1rem;font-size:.95rem;margin-top:.3rem}
+.tile .btn:hover{background:var(--c);color:var(--surface)}
+.core{width:100%;background:var(--ink);color:var(--bg);padding:1.5rem clamp(1.5rem,6vw,4rem) 1.6rem;clip-path:polygon(3.5% 0,96.5% 0,100% 100%,0 100%);text-align:center}
+.core h3{font-size:1.3rem}
+.core ul{list-style:none;padding:0;margin:1rem 0 0;display:flex;flex-wrap:wrap;justify-content:center;gap:.5rem 1.6rem}
+.core li{display:flex;align-items:center;gap:.5rem;font-size:.98rem}
+.core li::before{content:"";width:.6rem;height:.6rem;border-radius:50%;background:var(--c);flex:none}
 
 /* skills */
 .skills{display:grid;grid-template-columns:repeat(3,1fr);gap:2rem}
@@ -186,7 +194,9 @@ footer{padding:1.6rem 0;font-size:.88rem;color:var(--ink-2)}
   .life{grid-template-columns:1fr}
   .rail{display:none}
   .chip{display:inline-block}
-  .resumes,.skills{grid-template-columns:1fr}
+  .skills{grid-template-columns:1fr}
+  .m1{grid-template-columns:1fr;width:100%}
+  .core{clip-path:none;border-radius:14px}
   .edu{grid-template-columns:1fr}
   .why-grid,.about-grid{grid-template-columns:1fr}
 }
@@ -370,25 +380,39 @@ footer{padding:1.6rem 0;font-size:.88rem;color:var(--ink-2)}
 
 <section id="resumes" class="wrap sec" aria-labelledby="res-h">
   <div class="sec-head">
-    <h2 id="res-h">Pick the resume that fits your role</h2>
-    <p>Same experience, three different emphases. Each one is a single page.</p>
+    <h2 id="res-h">Same dossier. Different Module&nbsp;1.</h2>
+    <p>In a CTD, Modules 2 to 5 stay the same wherever you file. Only Module 1 changes for the region. My resumes work the same way: one core of experience, with a version on top for each kind of role.</p>
   </div>
-  <div class="resumes">
-    <article class="res" style="--c:var(--reg)">
-      <h3>Regulatory affairs</h3>
-      <p>Post-approval submissions, FDA Information Requests, CMC and Module 3, labeling, and State FDA licensing.</p>
-      <a class="btn" href="resumes/Stuti-Desai-Resume-Regulatory.pdf" target="_blank" rel="noopener">Open PDF</a>
-    </article>
-    <article class="res" style="--c:var(--qa)">
-      <h3>Quality</h3>
-      <p>Sterile manufacturing, deviations and change control, SOP writing, ISO 13485 gap assessments, and audit readiness.</p>
-      <a class="btn" href="resumes/Stuti-Desai-Resume-Quality.pdf" target="_blank" rel="noopener">Open PDF</a>
-    </article>
-    <article class="res" style="--c:var(--dev)">
-      <h3>Medical devices</h3>
-      <p>EU MDR classification, GSPR analysis, ISO 13485 and ISO 14971, and global device approval pathways.</p>
-      <a class="btn" href="resumes/Stuti-Desai-Resume-Medical-Devices.pdf" target="_blank" rel="noopener">Open PDF</a>
-    </article>
+  <div class="ctd">
+    <div class="m1">
+      <article class="tile" style="--c:var(--reg)">
+        <p class="mod">Module 1</p>
+        <h3>Regulatory</h3>
+        <p>Leads with post-approval filings, FDA Information Requests, CMC, and labeling.</p>
+        <a class="btn" href="resumes/Stuti-Desai-Resume-Regulatory.pdf" target="_blank" rel="noopener">Open PDF</a>
+      </article>
+      <article class="tile" style="--c:var(--qa)">
+        <p class="mod">Module 1</p>
+        <h3>Quality</h3>
+        <p>Leads with sterile GMP work, deviations and change control, SOPs, and audit readiness.</p>
+        <a class="btn" href="resumes/Stuti-Desai-Resume-Quality.pdf" target="_blank" rel="noopener">Open PDF</a>
+      </article>
+      <article class="tile" style="--c:var(--dev)">
+        <p class="mod">Module 1</p>
+        <h3>Medical devices</h3>
+        <p>Leads with EU MDR classification, GSPR, ISO 13485, and global device pathways.</p>
+        <a class="btn" href="resumes/Stuti-Desai-Resume-Medical-Devices.pdf" target="_blank" rel="noopener">Open PDF</a>
+      </article>
+    </div>
+    <div class="core">
+      <h3>Modules 2 to 5, the common core</h3>
+      <ul>
+        <li style="--c:var(--amber)">Sterile manufacturing floor at Kamla Amrut</li>
+        <li style="--c:var(--qa)">Quality systems and licensing at Meshayu Consultants Pvt. Ltd.</li>
+        <li style="--c:var(--reg)">FDA post-approval submissions at Boehringer Ingelheim</li>
+        <li style="--c:var(--dev)">EU MDR and global device projects</li>
+      </ul>
+    </div>
   </div>
 </section>
 
