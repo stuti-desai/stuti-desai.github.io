@@ -11,7 +11,7 @@
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230E7C86'/%3E%3Ctext x='50%25' y='56%25' text-anchor='middle' dominant-baseline='middle' font-family='Arial' font-weight='700' font-size='28' fill='white'%3ESD%3C/text%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&family=Bricolage+Grotesque:opsz,wght@12..96,400..800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&family=Bricolage+Grotesque:opsz,wght@12..96,400..800&family=Caveat:wght@600&display=swap" rel="stylesheet">
 <style>
 :root{
   --bg:#F1F5F4; --surface:#FFFFFF; --ink:#0D2730; --ink-2:#4A636C; --line:#CAD7D6;
@@ -19,6 +19,7 @@
   --tone:var(--amber);
   --display:"Bricolage Grotesque", "Segoe UI", system-ui, sans-serif;
   --body:"Atkinson Hyperlegible", "Segoe UI", system-ui, sans-serif;
+  --hand:"Caveat", "Segoe Print", "Bradley Hand", cursive;
   --max:1120px;
 }
 @media (prefers-color-scheme: dark){
@@ -146,6 +147,27 @@ body[data-lens="d"] [data-lens]:not([data-lens~="d"]){opacity:.22}
 .edu .meta{margin-top:.35rem}
 .edu .note{margin-top:.6rem}
 
+/* why */
+.why{padding-top:clamp(4rem,9vw,7rem)}
+.why-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.7fr);gap:clamp(1.5rem,5vw,4rem);align-items:start}
+.why h2{font-size:clamp(2.1rem,5vw,3.4rem)}
+.why-body p{font-size:clamp(1.15rem,1.9vw,1.4rem);line-height:1.55;max-width:38ch;margin-bottom:1.2rem}
+.why-body .turn{font-family:var(--display);font-weight:700;font-size:clamp(1.9rem,4.4vw,3rem);line-height:1.08;letter-spacing:-.025em;max-width:16ch;border-left:8px solid var(--pipe);padding:.15rem 0 .15rem 1.2rem;margin:2.2rem 0}
+
+/* about */
+.trying{font-family:var(--display);font-weight:700;font-size:clamp(2.1rem,5.6vw,4.2rem);line-height:1.02;letter-spacing:-.03em;max-width:17ch}
+.trying-sub{font-size:clamp(1.1rem,1.8vw,1.3rem);max-width:46ch;margin-top:1.2rem;color:var(--ink-2)}
+.hand{font-family:var(--hand);font-weight:600;font-size:1.55em;line-height:1;color:var(--dev);display:inline-block;transform:rotate(-3deg);margin-left:.1em}
+.about-grid{display:grid;grid-template-columns:minmax(0,1.4fr) minmax(0,1fr);gap:clamp(1.5rem,5vw,4rem);margin-top:3rem;align-items:start}
+.said h3{font-size:1.3rem}
+.said ul{list-style:none;padding:0;margin:1rem 0 0}
+.said li{border-top:1px solid var(--line);padding:.85rem 0;max-width:52ch}
+.said li b{font-family:var(--display);font-size:1.15rem;margin-right:.35rem}
+.qa{margin:0;display:grid;gap:1rem}
+.qa div{background:var(--surface);border-radius:14px;padding:1.2rem 1.35rem;border-left:8px solid var(--c)}
+.qa dt{color:var(--ink-2);font-size:.98rem}
+.qa dd{margin:.3rem 0 0;font-family:var(--display);font-weight:700;font-size:clamp(1.35rem,2.4vw,1.7rem);line-height:1.15;letter-spacing:-.015em}
+
 /* contact */
 .contact{margin-top:clamp(4rem,9vw,7rem);background:var(--ink);color:var(--bg);padding:clamp(3rem,7vw,5rem) 0}
 .contact .status{--tone:var(--qa);border-color:var(--qa);background:transparent;box-shadow:none}
@@ -166,6 +188,7 @@ footer{padding:1.6rem 0;font-size:.88rem;color:var(--ink-2)}
   .chip{display:inline-block}
   .resumes,.skills{grid-template-columns:1fr}
   .edu{grid-template-columns:1fr}
+  .why-grid,.about-grid{grid-template-columns:1fr}
 }
 @media (max-width:560px){
   .top nav a:not(.keep){display:none}
@@ -190,9 +213,10 @@ footer{padding:1.6rem 0;font-size:.88rem;color:var(--ink-2)}
 <header class="wrap top">
   <a class="mark" href="#"><span>SD</span>Stuti Desai</a>
   <nav aria-label="Main">
+    <a href="#why">Why RA</a>
     <a href="#lifecycle">Experience</a>
     <a href="#resumes">Resumes</a>
-    <a href="#skills">Skills</a>
+    <a href="#about">About me</a>
     <a class="keep" href="#contact">Contact</a>
   </nav>
 </header>
@@ -216,11 +240,23 @@ footer{padding:1.6rem 0;font-size:.88rem;color:var(--ink-2)}
   </ol>
 </section>
 
+<section id="why" class="why" aria-labelledby="why-h">
+  <div class="wrap why-grid">
+    <h2 id="why-h">Why regulatory affairs</h2>
+    <div class="why-body">
+      <p>My dad has worked in this industry for more than 40 years.</p>
+      <p>During COVID, the world rightly thanked doctors and scientists for showing up every day. I thought about my dad too, going in every day to make sure medicines actually got made and actually got approved.</p>
+      <p class="turn">Nobody clapped for that. I noticed anyway.</p>
+      <p>That's where this started for me.</p>
+    </div>
+  </div>
+</section>
+
 <section id="lifecycle" class="sec" aria-labelledby="life-h">
-  <div class="wrap sec-head">
+  <div class="wrap"><div class="sec-head">
     <h2 id="life-h">The lifecycle, in order</h2>
     <p>Every role so far has sat at a different point in a product's regulated life. If you're hiring for one area, pick it below and the matching work stays in focus.</p>
-  </div>
+  </div></div>
 
   <div class="filter" role="group" aria-label="Filter experience by area">
     <div class="wrap">
@@ -397,6 +433,28 @@ footer{padding:1.6rem 0;font-size:.88rem;color:var(--ink-2)}
       <h3>Bachelor of Pharmacy</h3>
       <p class="meta">Gujarat Technological University, Ahmedabad, India<br>Jun 2020 - Apr 2024</p>
     </article>
+  </div>
+</section>
+
+<section id="about" class="wrap sec" aria-labelledby="about-h">
+  <div class="sec-head">
+    <h2 id="about-h">Off the clock</h2>
+  </div>
+  <p class="trying">My favorite hobby is... I'm good at Trying.</p>
+  <p class="trying-sub">I draw, I sing, I taught myself German, and I'm always partway through learning some new instrument <span class="hand">badly</span>. If it's new, my answer is usually yes.</p>
+  <div class="about-grid">
+    <div class="said">
+      <h3>What people who know me would say</h3>
+      <ul>
+        <li><b>Happy-go-lucky.</b>I'm usually laughing, and I'm often the one who lightens the mood in a room.</li>
+        <li><b>Dependable.</b>People trust me with decisions.</li>
+        <li><b>A good friend.</b>An empathetic one, too.</li>
+      </ul>
+    </div>
+    <dl class="qa">
+      <div style="--c:var(--qa)"><dt>Introvert or extrovert?</dt><dd>Depends entirely on the room.</dd></div>
+      <div style="--c:var(--amber)"><dt>Picky eater?</dt><dd>Very. Ketchup goes on almost everything.</dd></div>
+    </dl>
   </div>
 </section>
 </main>
